@@ -4,6 +4,14 @@
         <servlet-name>FrontController</servlet-name>
         <servlet-class>controller.FrontController</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>SendEmail</servlet-name>
+        <servlet-class>SendEmail</servlet-class>
+    </servlet>
+    <servlet>
+        <servlet-name>SendMail</servlet-name>
+        <servlet-class>BusinessLogic.SendMail</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>FrontController</servlet-name>
         <url-pattern>/fc/*</url-pattern>
@@ -15,6 +23,22 @@
     <servlet-mapping>
         <servlet-name>log</servlet-name>
         <url-pattern>/log</url-pattern>
+    </servlet-mapping>
+    <servlet>
+        <servlet-name>reg</servlet-name>
+        <jsp-file>/registration.jsp</jsp-file>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>reg</servlet-name>
+        <url-pattern>/reg</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendEmail</servlet-name>
+        <url-pattern>/sendotp</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>SendMail</servlet-name>
+        <url-pattern>/mail</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

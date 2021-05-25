@@ -1,7 +1,12 @@
 package controller;
 
+import BusinessLogic.Business;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.Properties;
+import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -10,17 +15,25 @@ import javax.servlet.http.HttpServletResponse;
 public class FrontController extends HttpServlet {
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
-        try (PrintWriter out = response.getWriter()) {
-            
-            out.println("<!DOCTYPE html>");
-            out.println("<html>");
-            out.println("<head>");
-            out.println("<title>Servlet FrontController</title>");            
-            out.println("</head>");
-            out.println("<body>");
-            out.println("<h1>Servlet FrontController at " + request.getContextPath() + "</h1>");
-            out.println("</body>");
-            out.println("</html>");
+        PrintWriter out = response.getWriter();
+        try  {
+            String cp = request.getContextPath();
+            String sp = request.getServletPath(); 
+            String pi = request.getPathInfo();
+            if(pi.equals("/index.jsp")){
+                String path = "https://localhost:8084"+cp+pi;
+                response.sendRedirect(path);
+            }            
+            Business obj = (Business)Class.forName("BusinessLogic."+pi.substring(1)).newInstance();
+            String res = obj.businessLogic(request);
+            Properties prop = new Properties();
+            File f = new File("/home/saquib/NetBeansProjects/e-Pocket/src/java/controller/view.properties");
+            FileInputStream fis = new FileInputStream(f);
+            prop.load(fis);
+            String viewpath = prop.getProperty(pi.substring(1));
+            request.getRequestDispatcher(viewpath).forward(request, response);
+        }catch(IOException | ClassNotFoundException | IllegalAccessException | InstantiationException ex){
+            ex.printStackTrace(out);
         }
     }
 

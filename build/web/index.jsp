@@ -7,46 +7,89 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
-
 <head>
-    <title>e-Pocket</title>
-    <link rel="shortcut icon" href="image/icons8-cloud.svg" type="image/x-icon">
-    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-    <link rel="stylesheet" href="css/main.css" type="text/css" />
-    <link href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
-
-</head>
-
-<body>
-    <form action="fc" method="POST>"
-<div class="container">
-    <div class="row">
-        <div class="col-md-offset-8 col-md-4">
-            <div class="form-login">
-            <h4>Welcome back to e-Pocket</h4>
-            <input type="email" id="email" class="form-control input-sm chat-input" placeholder="Email" name="email" required="required"/>
-            </br>
-            <input type="text" id="password" class="form-control input-sm chat-input" placeholder="Password" name="password" required="required"/>
-            </br>
-            <div class="wrapper">
-            <span class="group-btn">     
-                <button type="submit" class="btn btn-primary">Login</button>
-                <a href="fc/reg" class="btn btn-primary btn-md">Sign Up  <i class="fa fa-sign-in"></i></a>
-            </span>
-            </div>
-            </div>
+	<title>e-Pocket</title>
+        <!--<link rel="stylesheet" type="text/css" href="css/slider.css">-->
+        <link rel="stylesheet" type="text/css" href="css/demo.css" />
+	<link rel="stylesheet" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="bootstrap.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
         
-        </div>
-    </div>
-</div>
-</form>
-
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script src="js/main.js"></script>
+</head>
+<body>
+    <nav class="navbar navbar-default">
+	<div class="container">
+            <div class="navbar-header">
+		<button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-nav-demo" aria-expanded="false">
+       		<span class="sr-only">Toggle navigation</span>
+        	<span class="icon-bar"></span>
+        	<span class="icon-bar"></span>
+       		<span class="icon-bar"></span>
+      		</button>
+		<a href="#" class="navbar-brand">e-Pocket</a>
+		</div>
+                <div>
+                    <div class="collapse navbar-collapse" id="bs-nav-demo">
+			<ul class="nav navbar-nav">
+                            <li><a href="#">About</a></li>
+                            <li><a href="#">Contact</a></li>
+                            <li><a href="#">Privacy & Policies</a></li>
+			</ul>
+			<ul class="nav navbar-nav navbar-right">
+                            <li><a href="fc/Registration">Sign Up</a></li>
+                            <li><a href="fc/Login">Log In</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+	<div class="slideshow-container">
+            
+            <input id="sliderSwitch" class="slider__switch" type="checkbox" name="sliderSwitch" hidden />
+            <div class="slider">
+              <ul class="slider__list">
+                <li class="slider__slide"><img src="image/slider/1.png" style="width: 100%" /></li>
+                <li class="slider__slide"><img src="image/slider/2.png" style="width: 100%" /></li>
+                <li class="slider__slide"><img src="image/slider/3.png" style="width: 100%" /></li>
+                <li class="slider__slide"><img src="image/slider/4.png" style="width: 100%" /></li>
+              </ul>
+            </div>
+<!--            <div class="slider__control">
+              <label for="sliderSwitch"></label>
+            </div>-->
+            
+<!--            <div class="mySlides fade">
+            <div class="numbertext">1 / 4</div>
+            <img src="image/slider/1.png" style="width:100%">
+            <div class="text">Caption Text</div>
+            </div>
+            <div class="mySlides fade">
+            <div class="numbertext">2 / 4</div>
+            <img src="image/slider/2.png" style="width:100%">
+            <div class="text">Caption Two</div>
+            </div>
+            <div class="mySlides fade">
+            <div class="numbertext">3 / 4</div>
+            <img src="image/slider/3.png" style="width:100%">
+            <div class="text">Caption Three</div>
+            </div>
+            <div class="mySlides fade">
+            <div class="numbertext">4 / 4</div>
+            <img src="image/slider/4.png" style="width:100%">
+            <div class="text">Caption Four</div>
+            </div>
+            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+            <a class="next" onclick="plusSlides(1)">&#10095;</a>
+            <br>
+            <div style="text-align:center">
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            <span class="dot"></span>
+            </div>-->
+	</div>-
+        <script type="text/javascript" src="js/slider.js"></script>
+	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 </body>
-
 </html>
