@@ -53,43 +53,9 @@
                 <li class="slider__slide"><img src="image/slider/4.png" style="width: 100%" /></li>
               </ul>
             </div>
-<!--            <div class="slider__control">
-              <label for="sliderSwitch"></label>
-            </div>-->
-            
-<!--            <div class="mySlides fade">
-            <div class="numbertext">1 / 4</div>
-            <img src="image/slider/1.png" style="width:100%">
-            <div class="text">Caption Text</div>
-            </div>
-            <div class="mySlides fade">
-            <div class="numbertext">2 / 4</div>
-            <img src="image/slider/2.png" style="width:100%">
-            <div class="text">Caption Two</div>
-            </div>
-            <div class="mySlides fade">
-            <div class="numbertext">3 / 4</div>
-            <img src="image/slider/3.png" style="width:100%">
-            <div class="text">Caption Three</div>
-            </div>
-            <div class="mySlides fade">
-            <div class="numbertext">4 / 4</div>
-            <img src="image/slider/4.png" style="width:100%">
-            <div class="text">Caption Four</div>
-            </div>
-            <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
-            <a class="next" onclick="plusSlides(1)">&#10095;</a>
-            <br>
-            <div style="text-align:center">
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            <span class="dot"></span>
-            </div>-->
 	</div>-
-        <script type="text/javascript" src="js/slider.js"></script>
 	<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-	<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="js/slider.js"></script>
 </body>
 </html>
