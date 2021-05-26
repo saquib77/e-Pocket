@@ -1,5 +1,5 @@
 <%@include file="include/header.jsp" %>
-
+    
 	<div class="limiter">
 		<div class="container-login100">
 			<div class="wrap-login100">
@@ -9,7 +9,7 @@
 					</span>
 				</div>
 
-				<form class="login100-form validate-form">
+                            <form class="login100-form validate-form" method="POST">
                                         <div class="wrap-input100 validate-input m-b-26" data-validate="First Name is required">
 						<span class="label-input100">First Name</span>
 						<input class="input100" type="text" name="firstname" placeholder="Enter First Name">
@@ -62,7 +62,7 @@
 
 					<div class="container-login100-form-btn">
 						<button class="login100-form-btn">
-							Sign Up
+                                                    <a href="email_verificcation.jsp"> Sign Up</a>
 						</button>
 					</div>
 				</form>
