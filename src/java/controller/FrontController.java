@@ -1,5 +1,7 @@
 package controller;
+
 import BusinessLogic.Business;
+import BusinessLogic.Registration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,31 +14,37 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class FrontController extends HttpServlet {
+
     protected void processRequest(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        try  {
+        try {
             String cp = request.getContextPath();
-            String sp = request.getServletPath(); 
+            String sp = request.getServletPath();
             String pi = request.getPathInfo();
-            if(pi.equals("/index.jsp")){
-                String path = "https://localhost:8084"+cp+pi;
+            if (pi.equals("/index.jsp")) {
+                String path = "https://localhost:8084" + cp + pi;
                 response.sendRedirect(path);
-            }  
-            if(pi.equals("/registration.jsp")){
-                String fname=request.getParameter("firstname");
-                String lname=request.getParameter("lastname");
-                String email=request.getParameter("email");
-                String phnum=request.getParameter("phnum");
-                String pwd=request.getParameter("pass");
-                String city_name=request.getParameter("city_name");
-                String state_name=request.getParameter("state_name");
-                String country_name=request.getParameter("country_name");
-                String gender=request.getParameter("gender");
-                String que=request.getParameter("que");
-                String ans=request.getParameter("ans"); 
             }
-            Business obj = (Business)Class.forName("BusinessLogic."+pi.substring(1)).newInstance();
+
+            if (pi.equals("/registration.jsp")) {
+                String pathreg = "https://localhost:8080" + cp + pi;
+                String fname = request.getParameter("firstname");
+                String lname = request.getParameter("lastname");
+                String email = request.getParameter("email");
+                String phnum = request.getParameter("phnum");
+                String pwd = request.getParameter("pass");
+                String city_name = request.getParameter("city_name");
+                String state_name = request.getParameter("state_name");
+                String country_name = request.getParameter("country_name");
+                String gender = request.getParameter("gender");
+                String que = request.getParameter("que");
+                String ans = request.getParameter("ans");
+                Registration reg = new Registration();
+                String ruser = reg.registerUser(fname, lname, email, pwd, phnum, city_name, state_name, country_name, gender, que, ans);
+                response.sendRedirect(pathreg);
+            }
+            Business obj = (Business) Class.forName("BusinessLogic." + pi.substring(1)).newInstance();
             String res = obj.businessLogic(request);
             Properties prop = new Properties();
             File f = new File("/home/saquib/NetBeansProjects/e-Pocket/src/java/controller/view.properties");
@@ -44,7 +52,7 @@ public class FrontController extends HttpServlet {
             prop.load(fis);
             String viewpath = prop.getProperty(pi.substring(1));
             request.getRequestDispatcher(viewpath).forward(request, response);
-        }catch(IOException | ClassNotFoundException | IllegalAccessException | InstantiationException ex){
+        } catch (IOException | ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
             ex.printStackTrace(out);
         }
     }
