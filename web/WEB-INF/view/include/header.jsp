@@ -39,7 +39,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
       		</button>
-		<a href="#" class="navbar-brand">e-Pocket</a>
+		<a href="/home" class="navbar-brand">e-Pocket</a>
             </div>
             <div>
                 <div class="collapse navbar-collapse" id="bs-nav-demo">

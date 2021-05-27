@@ -1,5 +1,4 @@
 package controller;
-
 import BusinessLogic.Business;
 import java.io.File;
 import java.io.FileInputStream;
@@ -23,7 +22,20 @@ public class FrontController extends HttpServlet {
             if(pi.equals("/index.jsp")){
                 String path = "https://localhost:8084"+cp+pi;
                 response.sendRedirect(path);
-            }            
+            }  
+            if(pi.equals("/registration.jsp")){
+                String fname=request.getParameter("firstname");
+                String lname=request.getParameter("lastname");
+                String email=request.getParameter("email");
+                String phnum=request.getParameter("phnum");
+                String pwd=request.getParameter("pass");
+                String city_name=request.getParameter("city_name");
+                String state_name=request.getParameter("state_name");
+                String country_name=request.getParameter("country_name");
+                String gender=request.getParameter("gender");
+                String que=request.getParameter("que");
+                String ans=request.getParameter("ans"); 
+            }
             Business obj = (Business)Class.forName("BusinessLogic."+pi.substring(1)).newInstance();
             String res = obj.businessLogic(request);
             Properties prop = new Properties();

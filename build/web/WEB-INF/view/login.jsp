@@ -31,7 +31,7 @@
 						</div>
 
 						<div>
-							<a href="#" class="txt1">
+							<a href="/forgotpass.jsp" class="txt1">
 								Forgot Password?
 							</a>
 						</div>
