@@ -1,7 +1,7 @@
 package controller;
 
 import BusinessLogic.Business;
-import BusinessLogic.Registration;
+import model.Registration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -28,7 +28,7 @@ public class FrontController extends HttpServlet {
             }
 
             if (pi.equals("/registration.jsp")) {
-                String pathreg = "https://localhost:8080" + cp + pi;
+                String pathreg = "https://localhost:8080" + cp + "/email_varification.jsp";
                 String fname = request.getParameter("firstname");
                 String lname = request.getParameter("lastname");
                 String email = request.getParameter("email");
@@ -40,6 +40,8 @@ public class FrontController extends HttpServlet {
                 String gender = request.getParameter("gender");
                 String que = request.getParameter("que");
                 String ans = request.getParameter("ans");
+                
+                //Registration
                 Registration reg = new Registration();
                 String ruser = reg.registerUser(fname, lname, email, pwd, phnum, city_name, state_name, country_name, gender, que, ans);
                 response.sendRedirect(pathreg);

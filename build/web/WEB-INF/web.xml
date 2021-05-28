@@ -10,7 +10,7 @@
     </servlet>
     <servlet>
         <servlet-name>SendMail</servlet-name>
-        <servlet-class>BusinessLogic.SendMail</servlet-class>
+        <servlet-class>model.SendMail</servlet-class>
     </servlet>
     <servlet-mapping>
         <servlet-name>FrontController</servlet-name>

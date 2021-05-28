@@ -5,7 +5,7 @@
                 <div class="login100-form-title" style="background-image: url(../image/bg-01.jpg);">
                     <span class="login100-form-title-1">Sign Up</span>
 		</div>
-                    <form action="/registration" class="login100-form validate-form" method="POST">
+                    <form action="Verify" class="login100-form validate-form" method="POST">
                         <div class="wrap-input100 validate-input m-b-26" data-validate="First Name is required">
                             <span class="label-input100">First Name</span>
                             <input class="input100" type="text" name="firstname" placeholder="Enter First Name">
