@@ -1,5 +1,10 @@
 # e-Pocket
 # Digital wallet
+- e-Pocket is cloud based document storage where you can store your unlimited document.
+- You can share document over the internet.
+- You can put privacy in document before sharing your document to your friend.
+- You can compress your document.
+- You can convert your pdf to word , vice versa.
 
 
 **Database Tables :**
