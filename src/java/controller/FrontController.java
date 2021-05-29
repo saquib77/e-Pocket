@@ -1,7 +1,7 @@
 package controller;
 
 import BusinessLogic.Business;
-import model.Registration;
+import BusinessLogic.Registration;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -26,34 +26,23 @@ public class FrontController extends HttpServlet {
                 String path = "https://localhost:8084" + cp + pi;
                 response.sendRedirect(path);
             }
-
-            if (pi.equals("/registration.jsp")) {
-                String pathreg = "https://localhost:8080" + cp + "/email_varification.jsp";
-                String fname = request.getParameter("firstname");
-                String lname = request.getParameter("lastname");
-                String email = request.getParameter("email");
-                String phnum = request.getParameter("phnum");
-                String pwd = request.getParameter("pass");
-                String city_name = request.getParameter("city_name");
-                String state_name = request.getParameter("state_name");
-                String country_name = request.getParameter("country_name");
-                String gender = request.getParameter("gender");
-                String que = request.getParameter("que");
-                String ans = request.getParameter("ans");
-                
-                //Registration
-                Registration reg = new Registration();
-                String ruser = reg.registerUser(fname, lname, email, pwd, phnum, city_name, state_name, country_name, gender, que, ans);
-                response.sendRedirect(pathreg);
+            if(pi.contains("view")){
+                Properties prop = new Properties();
+                File f = new File("/home/saquib/NetBeansProjects/e-Pocket/src/java/controller/view.properties");
+                FileInputStream fis = new FileInputStream(f);
+                prop.load(fis);
+                String viewpath = prop.getProperty(pi.substring(6));
+                request.getRequestDispatcher(viewpath).forward(request, response);
+            }else{
+                Business obj = (Business) Class.forName("BusinessLogic." + pi.substring(1)).newInstance();
+                String res = obj.businessLogic(request);
+                Properties prop = new Properties();
+                File f = new File("/home/saquib/NetBeansProjects/e-Pocket/src/java/controller/view.properties");
+                FileInputStream fis = new FileInputStream(f);
+                prop.load(fis);
+                String viewpath = prop.getProperty(pi.substring(1));
+                request.getRequestDispatcher(viewpath).forward(request, response);
             }
-            Business obj = (Business) Class.forName("BusinessLogic." + pi.substring(1)).newInstance();
-            String res = obj.businessLogic(request);
-            Properties prop = new Properties();
-            File f = new File("/home/saquib/NetBeansProjects/e-Pocket/src/java/controller/view.properties");
-            FileInputStream fis = new FileInputStream(f);
-            prop.load(fis);
-            String viewpath = prop.getProperty(pi.substring(1));
-            request.getRequestDispatcher(viewpath).forward(request, response);
         } catch (IOException | ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
             ex.printStackTrace(out);
         }
