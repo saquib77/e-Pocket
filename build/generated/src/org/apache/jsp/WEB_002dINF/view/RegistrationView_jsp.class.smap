@@ -1,0 +1,16 @@
+SMAP
+RegistrationView_jsp.java
+JSP
+*S JSP
+*F
++ 0 header.jsp
+WEB-INF/view/include/header.jsp
++ 1 RegistrationView.jsp
+WEB-INF/view/RegistrationView.jsp
++ 2 footer.jsp
+WEB-INF/view/include/footer.jsp
+*L
+1,54:50
+1#1,83:103
+1#2,21:185
+*E

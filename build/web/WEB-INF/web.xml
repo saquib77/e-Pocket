@@ -4,33 +4,9 @@
         <servlet-name>FrontController</servlet-name>
         <servlet-class>controller.FrontController</servlet-class>
     </servlet>
-    <servlet>
-        <servlet-name>SendEmail</servlet-name>
-        <servlet-class>SendEmail</servlet-class>
-    </servlet>
-    <servlet>
-        <servlet-name>SendMail</servlet-name>
-        <servlet-class>model.SendMail</servlet-class>
-    </servlet>
     <servlet-mapping>
         <servlet-name>FrontController</servlet-name>
         <url-pattern>/fc/*</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>Home</servlet-name>
-        <jsp-file>/index.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>Home</servlet-name>
-        <url-pattern>/home</url-pattern>
-    </servlet-mapping>
-    <servlet>
-        <servlet-name>verify</servlet-name>
-        <jsp-file>/WEB-INF/view/email_verification.jsp</jsp-file>
-    </servlet>
-    <servlet-mapping>
-        <servlet-name>verify</servlet-name>
-        <url-pattern>/Verify</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>

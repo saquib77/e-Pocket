@@ -25,24 +25,12 @@ public class FrontController extends HttpServlet {
             if (pi.equals("/index.jsp")) {
                 String path = "https://localhost:8084" + cp + pi;
                 response.sendRedirect(path);
+            }else if(pi.equals("/Registration")){
+                Registration reg = (Registration)Class.forName("BusinessLogic."+pi.substring(1)).newInstance();
+                String res = reg.businessLogic(request);
+                out.println(res);
             }
-            if(pi.contains("view")){
-                Properties prop = new Properties();
-                File f = new File("/home/saquib/NetBeansProjects/e-Pocket/src/java/controller/view.properties");
-                FileInputStream fis = new FileInputStream(f);
-                prop.load(fis);
-                String viewpath = prop.getProperty(pi.substring(6));
-                request.getRequestDispatcher(viewpath).forward(request, response);
-            }else{
-                Business obj = (Business) Class.forName("BusinessLogic." + pi.substring(1)).newInstance();
-                String res = obj.businessLogic(request);
-                Properties prop = new Properties();
-                File f = new File("/home/saquib/NetBeansProjects/e-Pocket/src/java/controller/view.properties");
-                FileInputStream fis = new FileInputStream(f);
-                prop.load(fis);
-                String viewpath = prop.getProperty(pi.substring(1));
-                request.getRequestDispatcher(viewpath).forward(request, response);
-            }
+            
         } catch (IOException | ClassNotFoundException | IllegalAccessException | InstantiationException ex) {
             ex.printStackTrace(out);
         }
